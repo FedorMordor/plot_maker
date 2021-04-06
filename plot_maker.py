@@ -23,13 +23,13 @@ class PlotMaker():
         # preparations
         assert not ((xlabel is None) and (ylabel is None)), "Set xlabel and ylabel"
 
-        if legend == None:
-            for i, el in enumerate(conts):
-                plt.plot(*el.T, linewidth=1.5)
-                plt.legend(fontsize=self.big_fontsize)
+        if legend is None:
+            for i, element in enumerate(conts):
+                plt.plot(*element.T, linewidth=1.5)
         else:
-            for i, el in enumerate(conts):
-                plt.plot(*el.T, label=legend[i], linewidth=1.5)
+            for i, element in enumerate(conts):
+                plt.plot(*element.T, label=legend[i], linewidth=1.5)
+                plt.legend(fontsize=self.big_fontsize)
 
         plt.grid(True)
         plt.tick_params(labelsize=self.medium_fontsize)
