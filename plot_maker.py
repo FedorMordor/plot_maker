@@ -45,21 +45,3 @@ small_plot_params = {'figsize':(7, 5),
         'big_fontsize': 15,
         'medium_fontsize': 12}
 
-class VertSplitPlotMaker():
-
-    def __init__(self):
-
-        self.figsize = (15,11)
-        self.big_fontsize = 15
-        self.medium_fontsize = 12
-        self.save = True
-
-    def set_params(self, **kwargs):
-        self.__dict__.update(**kwargs)
-
-    def make_plot(self, conts, labels=None, labels=None, legends=None):
-
-        assert not (labels is none), "Set axes labels"
-        assert not (labels['left']), "Set left plot axes labels"
-        assert not (labels['right']), "Set right plot axes labels"
-
