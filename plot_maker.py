@@ -26,12 +26,12 @@ class PlotMaker():
         if legend == None:
             for i, el in enumerate(conts):
                 plt.plot(*el.T, linewidth=1.5)
+                plt.legend(fontsize=self.big_fontsize)
         else:
             for i, el in enumerate(conts):
                 plt.plot(*el.T, label=legend[i], linewidth=1.5)
 
         plt.grid(True)
-        plt.legend(fontsize=self.big_fontsize)
         plt.tick_params(labelsize=self.medium_fontsize)
         plt.xlabel(xlabel, fontsize=self.big_fontsize)
         plt.ylabel(ylabel, fontsize=self.big_fontsize)
