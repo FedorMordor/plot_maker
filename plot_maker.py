@@ -9,7 +9,7 @@ import matplotlib.pyplot as plt
 class PlotMaker():
 
     def __init__(self):
-        
+      
         self.figsize = (7, 5)
         self.big_fontsize = 15
         self.medium_fontsize = 12
@@ -22,12 +22,14 @@ class PlotMaker():
 
         # preparations
         assert not ((xlabel is None) and (ylabel is None)), "Set xlabel and ylabel"
-        if legend is None:
-            legend = [None for cont in conts]
 
-        for i in range(len(conts)):
-            plt.plot(*conts[i].T, label=legend[i], linewidth=1.5)
-        
+        if legend == None:
+            for i, el in enumerate(conts):
+                plt.plot(*el.T, linewidth=1.5)
+        else:
+            for i, el in enumerate(conts):
+                plt.plot(*el.T, label=legend[i], linewidth=1.5)
+
         plt.grid(True)
         plt.legend(fontsize=self.big_fontsize)
         plt.tick_params(labelsize=self.medium_fontsize)
@@ -42,4 +44,22 @@ big_plot_params = {'figsize':(15, 10),
 small_plot_params = {'figsize':(7, 5),
         'big_fontsize': 15,
         'medium_fontsize': 12}
+
+class VertSplitPlotMaker():
+
+    def __init__(self):
+
+        self.figsize = (15,11)
+        self.big_fontsize = 15
+        self.medium_fontsize = 12
+        self.save = True
+
+    def set_params(self, **kwargs):
+        self.__dict__.update(**kwargs)
+
+    def make_plot(self, conts, labels=None, labels=None, legends=None):
+
+        assert not (labels is none), "Set axes labels"
+        assert not (labels['left']), "Set left plot axes labels"
+        assert not (labels['right']), "Set right plot axes labels"
 
