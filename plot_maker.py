@@ -24,6 +24,8 @@ class PlotMaker():
         # preparations
         assert not ((xlabel is None) and (ylabel is None)), "Set xlabel and ylabel"
 
+        plt.figure(figsize = self.figsize)
+
         if legend is None:
             for i, element in enumerate(conts):
                 plt.plot(*element.T, linewidth=1.5)
